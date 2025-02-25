@@ -115,6 +115,43 @@ input, select, textarea {
 
 /* Type */
 
+
+
+/* Target all images within the .posts section's articles */
+.posts article .image.fit img {
+	width: 600px;          /* Fixed width for uniformity */
+	height: 300px;         /* Fixed height for uniformity */
+	object-fit: cover;     /* Crops excess while maintaining aspect ratio */
+	display: block;        /* Ensures no extra spacing below */
+	margin: 0 auto;        /* Centers the image horizontally */
+	border-radius: 8px;    /* Optional: adds a modern rounded corner */
+}
+
+/* Ensure the container respects the image size */
+.posts article .image.fit {
+	width: 600px;          /* Matches image width */
+	height: 300px;         /* Matches image height */
+	overflow: hidden;      /* Hides any overflow from object-fit: cover */
+	margin-bottom: 15px;   /* Adds spacing between image and text, adjust as needed */
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+	.posts article .image.fit img,
+	.posts article .image.fit {
+			width: 200px;      /* Smaller width for tablets/mobile */
+			height: 133px;     /* Maintains approximate 3:2 ratio */
+	}
+}
+
+@media (max-width: 480px) {
+	.posts article .image.fit img,
+	.posts article .image.fit {
+			width: 150px;      /* Even smaller for very small screens */
+			height: 100px;     /* Maintains approximate 3:2 ratio */
+	}
+}
+
 	html {
 		font-size: 16pt;
 	}
