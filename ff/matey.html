@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mategoghene Obodaya – Resume</title>
+
+<!-- Optional: try to load Inter; falls back gracefully -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --muted:#666;
+    --line:#e6e6e6;
+    --accent:#2f67ff;
+    --stamp:#1db954;
+    --bg:#ffffff;
+    --font-size-base: 12.7pt; /* Increased by 1.7px from 11pt */
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    color:var(--ink);
+    font: 400 var(--font-size-base)/1.4 "Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,"Helvetica Neue",Helvetica,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding:20px;
+  }
+
+  .name{
+    font-size:29.7px; /* 28 + 1.7 */
+  }
+  .role{
+    font-size:15.7px; /* 14 + 1.7 */
+  }
+  .contacts{
+    font-size:13.7px; /* 12 + 1.7 */
+  }
+  .section h3{
+    font-size:15.7px; /* 14 + 1.7 */
+  }
+  .summary{
+    font-size:12.7pt; /* 11 + 1.7 */
+  }
+  .skills dt{
+    font-size:12.7pt; /* 11 + 1.7 */
+  }
+  .skills dd{
+    font-size:12.7pt; /* 11 + 1.7 */
+  }
+  .skills .row{
+    font-size:12.7pt; /* 11 + 1.7 */
+  }
+  .rolehead .title{
+    font-size:13.7pt; /* 12 + 1.7 */
+  }
+  .rolehead .dates,
+  .company,
+  .bullets li,
+  .project li,
+  .edu .school,
+  .edu .meta,
+  .education-degree,
+  .education-location,
+  .education-date,
+  .education-location{
+    font-size:11.7pt; /* 10 + 1.7 */
+  }
+  .stamp{
+    font-size:37.7px; /* 36 + 1.7 */
+  }
+  a{
+    font-size:inherit;
+  }
+
+  .top-quote .l1{font-size:14.7px;} /* 13 + 1.7 */
+  .top-quote .l2{font-size:17.7px;} /* 16 + 1.7 */
+
+  .school { font-size:14.7pt !important; } /* 13 + 1.7 */
+  .meta { font-size:13.7pt !important; } /* 12 + 1.7 */
+  .education-date { font-size:10.7pt !important; }
+  .education-location { font-size:10.7pt !important; }
+
+  .project .title {
+    font-size:12.7pt; /* 11 + 1.7 */
+  }
+
+  /* Page card - US Letter dimensions */
+  .page {
+  max-width: 12.5in;
+  width: 12.5in;
+  min-width: 320px;
+  min-height: 11in;
+  margin: 0 auto;
+  background: var(--bg);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  padding: 36px 40px 44px;
+  position: relative;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+  /* Top quote */
+  .top-quote{
+    text-align:center;
+    color:var(--accent);
+    font-weight:800;
+    letter-spacing:.6px;
+    line-height:1.2;
+    text-transform:uppercase;
+  }
+  .top-quote .l1{font-size:13px; margin-bottom:6px}
+  .top-quote .l2{font-size:16px; margin-bottom:14px}
+
+  /* Name + role */
+  .identity{
+    text-align:center;
+    margin-bottom:12px;
+  }
+  .name{
+  font-size:28px;
+    font-weight:800;
+    letter-spacing:.2px;
+    margin:2px 0 4px;
+  }
+  .role{
+  font-size:14px;
+    color:var(--muted);
+    font-weight:600;
+  }
+
+  /* Contacts row */
+  .contacts{
+    margin-top:12px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px 24px;
+    justify-content:center;
+    color:var(--ink);
+  font-size:12px;
+  }
+  .contact{
+    display:flex; align-items:center; gap:6px;
+    white-space:nowrap;
+  }
+  .contact svg{width:12px;height:12px;opacity:.9}
+  .divider{height:1px;background:var(--line);margin:14px 0 14px}
+  .hr {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Section headers */
+  .section{margin-top:12px;}
+  .section h3{
+    display: block;
+    position: relative;
+    z-index: 2;
+    background: var(--bg);
+    padding-right: 8px;
+  font-size:14px; letter-spacing:.4px; text-transform:uppercase;
+    margin:0 0 8px; font-weight:800;
+  }
+
+  /* Paragraphs */
+  .summary{
+  font-size:11pt; color:#222; margin:0 0 10px;
+  line-height: 1.3;
+  }
+
+  /* Skills list */
+  .skills dt{
+  color:var(--ink); font-weight:700; font-size:11pt;
+  }
+  .skills dd{
+  margin:0; flex:1 1 auto; font-size:11pt; color:#222;
+  margin-left: 0;
+  }
+  .skills .row{
+  display:flex; gap:8px; align-items:flex-start;
+            padding: 2px 0;
+  }
+  .skills .row:first-child {
+    margin-top: -8px;
+  }
+
+  /* Experience */
+  .roleblock{margin-bottom:10px}
+  .rolehead{
+    display:flex; justify-content:space-between; gap:12px; align-items:flex-start;
+    margin:0 0 1px;
+  }
+  .rolehead .title{
+  font-size:12pt;
+  font-weight:700;
+  }
+  .rolehead .dates{
+  color:var(--ink); font-weight:700; font-size:10pt; white-space:nowrap;
+  }
+  .company{
+  color:var(--muted); font-weight:600; font-size:10pt;
+    display:flex; justify-content:space-between; gap:12px;
+    margin:0 0 4px;
+  }
+  .bullets{margin:0; padding-left:16px}
+  .bullets li{
+  margin:3px 0; font-size:10pt; line-height:1.3;
+  }
+
+  /* Projects & Education bullets similar */
+  .project li{margin:3px 0; font-size:10pt; line-height:1.3;}
+  .edu .school{font-weight:800}
+  .edu .meta{color:var(--muted); font-weight:600}
+  .education-degree, .education-location {
+  font-weight: 600;
+  font-size: 10pt;
+  }
+
+  /* Big green SELECTED stamp */
+  .stamp{
+    position:absolute;
+    inset:auto 70px 220px auto;  
+    transform:rotate(-16deg);
+    border:3px solid var(--stamp);
+    color:var(--stamp);
+    font-weight:900;
+    font-size:36px;
+    letter-spacing:1.5px;
+    padding:8px 18px;
+    border-radius:6px;
+    opacity:.18;                  
+    pointer-events:none;
+    text-transform:uppercase;
+  }
+
+  a{
+    color: #3555be;
+    font-size:inherit;
+  }
+
+  /* Print */
+  @media print{
+    body {
+    background: transparent;
+    padding: 0;
+  }
+  .page {
+    width: 13.5in !important;
+    max-width: 13.5in !important;
+    min-height: 11in !important;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .stamp{opacity:.22}
+  .pagebreak {
+    break-before: page;
+    page-break-before: always;
+  }
+}
+
+  /* Force consistent layout on all screen sizes */
+  @media (max-width:1200px){
+    .page {
+      width: 13.5in !important;
+      max-width: 13.5in !important;
+      min-width: 13.5in !important;
+      padding: 36px 40px 44px;
+      overflow-x: auto;
+    }
+    body {
+      overflow-x: auto;
+    }
+    .stamp{right:70px; bottom:220px; font-size:36px}
+  }
+
+  @media (max-width: 900px) {
+  .page {
+    width: 13.5in !important;
+    max-width: 13.5in !important;
+    min-width: 13.5in !important;
+    border-radius: 8px;
+    padding: 36px 40px 44px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    overflow-x: auto;
+  }
+  body {
+    overflow-x: auto;
+  }
+}
+
+  .education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+.education-date {
+  font-size: 9pt !important;
+    color: #666;
+    font-weight: bold;
+    margin-left: 8px;
+    display: inline-block;
+}
+.education-location {
+  font-size: 9pt !important;
+    color: #888;
+    margin-top: 1px;
+    display: block;
+    text-align: right;
+}
+
+/* Page break for print/PDF */
+.pagebreak {
+  display: block;
+  height: 0;
+  margin: 0;
+  border: none;
+}
+@media print {
+  .pagebreak {
+    break-before: page;
+    page-break-before: always;
+  }
+}
+
+/* Project titles */
+.project .title {
+  font-weight: 800; 
+  font-size: 11pt;
+  margin-bottom: 2px;
+}
+</style>
+</head>
+<body>
+  <main class="page">
+
+    <!-- Identity -->
+    <header class="identity">
+      <div class="name">MATEGOGHENE OBODAYA</div>
+      <div class="role">Registered Nurse</div>
+
+      <div class="contacts">
+        <div class="contact" title="Phone">
+          <!-- phone -->
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-.91 1A17 17 0 013 5.91a1 1 0 011- .91H7.6a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.3 2.22z"/></svg>
+          <a href="tel:+2349063563736">+234 906 356 3736</a>
+        </div>
+        <div class="contact" title="Email">
+          <!-- mail -->
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 00-2 2v.4l10 6.25L22 6.4V6a2 2 0 00-2-2zm2 6.04l-9.35 5.84a1.99 1.99 0 01-2.3 0L1 10.04V18a2 2 0 002 2h16a2 2 0 002-2v-7.96z"/></svg>
+          <a href="mailto:mategoghene.obodaya@eha.ng">mategoghene.obodaya@eha.ng</a>
+        </div>
+        <div class="contact" title="LinkedIn">
+          <!-- LinkedIn -->
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75c.97 0 1.75.79 1.75 1.75s-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.07-.93-2-2-2s-2 .93-2 2v4.5h-3v-9h3v1.22c.41-.77 1.39-1.22 2.25-1.22 1.66 0 3 1.34 3 6.99z"/></svg>
+          <a href="https://linkedin.com/in/mategoghene-obodaya-49a604285" target="_blank">linkedin</a>
+        </div>
+        
+        <div class="contact" title="Location">
+          <!-- location icon -->
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>C23 Alhaji Yekini Bakare, Lekki, Lagos, Nigeria</span>
+        </div>
+      </div>
+    </header>
+
+    <hr>
+
+    <!-- Objective -->
+    <section class="section">
+      <h3>Objective <hr></h3>
+      <p class="summary">
+        A dedicated Registered Nurse with extensive experience in fast-paced healthcare settings, skilled in administering medications, monitoring vital signs, wound care, and providing patient education. Passionate about delivering high-quality, patient-centered care while maintaining confidentiality and collaborating with healthcare teams to create a positive impact on patients and their families. Eager to apply clinical expertise and training to enhance patient outcomes and contribute to lifesaving efforts.
+      </p>
+    </section>
+
+    <!-- Skills -->
+    <section class="section">
+      <h3>Skills <hr></h3>
+      <dl class="skills">
+        <div class="row">
+          <dt>Clinical:</dt>
+          <dd>Patient Assessment, Medication Administration, Vital Signs Monitoring, Wound Care, Basic & Advanced Life Support</dd>
+        </div>
+        <div class="row">
+          <dt>Technical:</dt>
+          <dd>Electronic Medical Records (EMR), IV Cannulation, Catheterization, CPR, AED Operation, First Aid</dd>
+        </div>
+        <div class="row">
+          <dt>Software:</dt>
+          <dd>Microsoft Office (Word, Excel, PowerPoint), Healthcare Management Systems</dd>
+        </div>
+        <div class="row">
+          <dt>Professional:</dt>
+          <dd>Strong Communication & Leadership, Independent Work, Infection Control, Aseptic Techniques, Patient Education</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- Experience -->
+    <section class="section">
+      <h3>Professional Experience <hr></h3>
+
+      <div class="roleblock">
+        <div class="rolehead">
+          <div class="title">Staff Nurse</div>
+          <div class="dates">Aug 2023 — Present</div>
+        </div>
+        <div class="company">
+          <span>E Health Africa Clinics (EHA CLINICS)</span>
+          <span>Lagos, Nigeria</span>
+        </div>
+        <ul class="bullets">
+          <li>Perform patient evaluation using relevant, problem-oriented, and age-appropriate assessment techniques</li>
+          <li>Record all relevant information in the electronic medical record, administer medications, monitor both beneficial and adverse effects, and take appropriate action as needed</li>
+          <li>Recognize abnormal findings during patient assessments and conduct reassessments, consistently taking necessary follow-up actions to ensure patient safety</li>
+          <li>Administer basic life support (BLS) as needed, including performing CPR, using automated external defibrillators (AEDs), and ensuring airway management while coordinating with emergency response teams</li>
+          <li>Provide in-home patient care to monitor patient progress, administer treatments, and offer necessary support to both patients and their families</li>
+          <li>Actively participate in routine reviews of standard operating procedures (SOPs) and workflows to ensure alignment with best practices and regulatory requirements</li>
+          <li>Participate in voluntary community health initiatives to promote well-being, prevent diseases, and improve healthcare access through education and outreach</li>
+        </ul>
+      </div>
+
+      <div class="roleblock">
+        <div class="rolehead">
+          <div class="title">Staff Nurse</div>
+          <div class="dates">Dec 2022 — Jun 2023</div>
+        </div>
+        <div class="company">
+          <span>Lifecrest Hospital and Laboratory Services</span>
+          <span>Lagos, Nigeria</span>
+        </div>
+        <ul class="bullets">
+          <li>Provided nursing support and care to patients in various clinical settings</li>
+          <li>Performed duties as a scrub-in nurse during various surgical procedures, ensuring sterile environment maintenance</li>
+          <li>Ensured operating room sterilization and completed operation paperwork accurately</li>
+          <li>Prepared and sterilized medical instruments before surgical operations</li>
+          <li>Monitored patients' condition during surgery and provided professional nursing care to surgical patients</li>
+          <li>Assisted in the ICU unit, providing patient care, performing consciousness assessments, monitoring vitals, and administering medications</li>
+          <li>Treated minor and severe injuries as well as other acute and chronic health conditions</li>
+        </ul>
+      </div>
+
+      <div class="roleblock">
+        <div class="rolehead">
+          <div class="title">Student Nurse</div>
+          <div class="dates">Jan 2020 — Aug 2022</div>
+        </div>
+        <div class="company">
+          <span>Central Hospital Warri</span>
+          <span>Delta State, Nigeria</span>
+        </div>
+        <ul class="bullets">
+          <li>Provided care for patients with acute and chronic conditions under supervision</li>
+          <li>Administered medications, monitored vital signs, and managed peripheral illnesses, indwelling catheters, and nasogastric tubes</li>
+          <li>Conducted assessments on newborns and their mothers, providing education and guidance under supervision</li>
+          <li>Followed trauma triage protocols to treat both severe and minor injuries in the emergency department</li>
+          <li>Administered wound care and dressing changes following physician orders</li>
+        </ul>
+      </div>
+
+      <div class="roleblock">
+        <div class="rolehead">
+          <div class="title">Student Nurse</div>
+          <div class="dates">Nov 2021 — Dec 2021</div>
+        </div>
+        <div class="company">
+          <span>Primary Healthcare Center</span>
+          <span>Warri, Delta State</span>
+        </div>
+        <ul class="bullets">
+          <li>Provided immunizations to patients against minor infections</li>
+          <li>Conducted health education sessions on maternal and child healthcare, including family planning</li>
+          <li>Maintained accurate and complete medical records, documenting all patient interactions and interventions</li>
+          <li>Participated in medical outreach programs focused on Family Planning and Personal Hygiene awareness</li>
+        </ul>
+      </div>
+
+      <div class="roleblock">
+        <div class="rolehead">
+          <div class="title">Student Nurse</div>
+          <div class="dates">Jul 2021 — Aug 2021</div>
+        </div>
+        <div class="company">
+          <span>Federal Neuropsychiatric Hospital</span>
+          <span>Edo State, Nigeria</span>
+        </div>
+        <ul class="bullets">
+          <li>Provided targeted care to individuals with symptoms of mental illness</li>
+          <li>Administered prescribed medications to patients while taking necessary precautions under supervision</li>
+          <li>Built strong relationships with patients based on trust, active listening, and empathetic communication</li>
+          <li>Assisted patients in overcoming challenges associated with their mental health conditions</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="section">
+      <h3>Certifications <hr></h3>
+      
+      <div class="roleblock project">
+        <div class="title">Basic Life Support (2024)</div>
+        <ul class="bullets">
+          <li>British Medical Journal Learning</li>
+        </ul>
+      </div>
+
+      <div class="roleblock project">
+        <div class="title">Advanced Cardiovascular Life Support for In-Hospital Adult Cardiac Arrest (2024)</div>
+        <ul class="bullets">
+          <li>British Medical Journal Learning</li>
+        </ul>
+      </div>
+
+      <div class="roleblock project">
+        <div class="title">International Patient Safety Goals (2024)</div>
+        <ul class="bullets">
+          <li>E Health Africa Clinics (EHA Clinics)</li>
+        </ul>
+      </div>
+
+      <div class="roleblock project">
+        <div class="title">LEAN PLAYBOOK TRAINING (2024)</div>
+        <ul class="bullets">
+          <li>E Health Africa Clinics (EHA Clinics)</li>
+        </ul>
+      </div>
+
+      <div class="roleblock project">
+        <div class="title">First Aid, CPR, And AED Certificate (2022)</div>
+        <ul class="bullets">
+          <li>JCI, Warri, Delta State</li>
+        </ul>
+      </div>
+
+      <div class="roleblock project">
+        <div class="title">Occupational Health And Safety (2022)</div>
+        <ul class="bullets">
+          <li>JCI, Warri, Delta State</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section edu">
+      <h3>Education <hr></h3>
+      
+      <div class="roleblock education-header">
+        <div>
+          <div class="school" style="font-weight:800; font-size:10pt">School Of Nursing Warri</div>
+          <div class="meta" style="font-size:12pt; color:#383838;">Registered Nurse</div>
+        </div>
+        <div>
+          <div class="education-date" style="font-weight:700; font-size:11pt; color:#1a1a1a; margin-left: 25px;">Sep 2019 — Nov 2022</div>
+          <div class="education-location" style="font-weight:600; font-size:11pt;">Delta State, Nigeria</div>
+        </div>
+      </div>
+
+      <div class="roleblock education-header" style="margin-top: 10px;">
+        <div>
+          <div class="school" style="font-weight:800; font-size:13pt">Chambers College Warri</div>
+          <div class="meta" style="font-size:12pt; color:#383838;">Senior Secondary School Certificate Of Education</div>
+        </div>
+        <div>
+          <div class="education-date" style="font-weight:700; font-size:11pt; color:#1a1a1a; margin-left: 25px;">Jan 2012 — Jul 2019</div>
+          <div class="education-location" style="font-weight:600; font-size:11pt;">Delta State, Nigeria</div>
+        </div>
+      </div>
+
+      <div class="roleblock education-header" style="margin-top: 10px;">
+        <div>
+          <div class="school" style="font-weight:800; font-size:13pt">Zion City Foundation School Ughelli</div>
+          <div class="meta" style="font-size:12pt; color:#383838;">First School Leaving Certificate</div>
+        </div>
+        <div>
+          <div class="education-date" style="font-weight:700; font-size:11pt; color:#1a1a1a; margin-left: 25px;">Jan 2007 — Sep 2012</div>
+          <div class="education-location" style="font-weight:600; font-size:11pt;">Delta State, Nigeria</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- References -->
+    <section class="section">
+      <h3>References <hr></h3>
+      <div class="roleblock">
+        <div class="title">Mr. Edwin Igweh</div>
+        <ul class="bullets">
+          <li>Principal, School of Nursing Warri, Delta State</li>
+          <li>Phone: +234 803 406 4520</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

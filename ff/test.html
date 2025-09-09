@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Yole Obodaya – Resume</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #666;
+    --line: #e6e6e6;
+    --accent: #2f67ff;
+    --stamp: #1db954;
+    --bg: #ffffff;
+    --font-size-base: 13pt;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --border-radius: 6px;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    height: 100%;
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: #f8f9fa;
+    padding: 20px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  
+  .page {
+    max-width: 12.5in;
+    width: 100%;
+    min-height: 11in;
+    margin: 0 auto;
+    background: var(--bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    padding: 40px 50px;
+    position: relative;
+    overflow-x: auto;
+  }
+  
+  /* Header with centered name and role */
+  .header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .name {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    margin-bottom: 4px;
+    color: var(--ink);
+  }
+  
+  .role {
+    font-size: 18px;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .section-title {
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--line);
+    color: var(--ink);
+  }
+  
+  .summary {
+    font-size: var(--font-size-base);
+    color: #222;
+    margin-bottom: var(--spacing-md);
+    text-align: justify;
+  }
+  
+  /* Contact information */
+  .contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .contact {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    font-size: 13px;
+    color: var(--ink);
+  }
+  
+  .contact svg {
+    width: 14px;
+    height: 14px;
+    opacity: 0.9;
+  }
+  
+  .contact a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  
+  .contact a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Skills section with flex layout */
+  .skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .skill-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+  
+  .skill-title {
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    color: var(--ink);
+    min-width: 120px;
+    margin-top: 2px;
+  }
+  
+  .skill-items {
+    color: #222;
+    font-size: var(--font-size-base);
+    flex: 1;
+  }
+  
+  /* Experience section */
+  .role-block {
+    margin-bottom: var(--spacing-lg);
+    page-break-inside: avoid;
+  }
+  
+  .role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+  }
+  
+  .role-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  
+  .role-dates {
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  
+  .company-info {
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  
+  .bullets {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .bullets li {
+    margin: 6px 0;
+    font-size: var(--font-size-base);
+    line-height: 1.4;
+  }
+  
+  /* Projects section */
+  .project {
+    margin-bottom: var(--spacing-lg);
+    page-break-inside: avoid;
+  }
+  
+  .project-title {
+    font-weight: 800;
+    font-size: 15px;
+    margin-bottom: 4px;
+    color: var(--ink);
+  }
+  
+  .project-tech {
+    font-weight: 600;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  
+  /* Education section */
+  .education-block {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+    page-break-inside: avoid;
+  }
+  
+  .education-info {
+    flex: 2;
+  }
+  
+  .education-meta {
+    flex: 1;
+    text-align: right;
+  }
+  
+  .school-name {
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  
+  .degree {
+    font-size: 14px;
+    color: #383838;
+    font-weight: 500;
+  }
+  
+  .education-date {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  
+  .education-location {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  
+  /* Stamp */
+  .stamp {
+    position: absolute;
+    right: 70px;
+    bottom: 220px;
+    transform: rotate(-16deg);
+    border: 3px solid var(--stamp);
+    color: var(--stamp);
+    font-weight: 900;
+    font-size: 36px;
+    letter-spacing: 1.5px;
+    padding: 8px 18px;
+    border-radius: 6px;
+    opacity: 0.18;
+    pointer-events: none;
+    text-transform: uppercase;
+  }
+  
+  /* Print styles */
+  @media print {
+    body {
+      background: transparent;
+      padding: 0;
+    }
+    
+    .page {
+      width: 100%;
+      max-width: 100%;
+      min-height: 11in;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 0.5in;
+    }
+    
+    .stamp {
+      opacity: 0.22;
+    }
+    
+    .pagebreak {
+      break-before: page;
+      page-break-before: always;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .page {
+      padding: 30px;
+    }
+    
+    .role-header,
+    .company-info,
+    .education-block {
+      flex-direction: column;
+    }
+    
+    .education-meta {
+      text-align: left;
+      margin-top: 8px;
+    }
+    
+    .contacts {
+      justify-content: flex-start;
+    }
+    
+    .skill-row {
+      flex-direction: column;
+      gap: 4px;
+    }
+    
+    .skill-title {
+      min-width: auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+    <!-- Identity -->
+    <header class="header">
+      <div class="name">YOLE OBODAYA</div>
+      <div class="role">Associate Frontend Software Engineer at Tech Innovate Solutions</div>
+
+      <div class="contacts">
+        <div class="contact" title="Phone">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-.91 1A17 17 0 013 5.91a1 1 0 011- .91H7.6a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.3 2.22z"/></svg>
+          <a href="tel:07032982237">07032982237</a>
+        </div>
+        <div class="contact" title="Email">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 00-2 2v.4l10 6.25L22 6.4V6a2 2 0 00-2-2zm2 6.04l-9.35 5.84a1.99 1.99 0 01-2.3 0L1 10.04V18a2 2 0 002 2h16a2 2 0 002-2v-7.96z"/></svg>
+          <a href="mailto:yolithrone@gmail.com">yolithrone@gmail.com</a>
+        </div>
+        <div class="contact" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75c.97 0 1.75.79 1.75 1.75s-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.07-.93-2-2-2s-2 .93-2 2v4.5h-3v-9h3v1.22c.41-.77 1.39-1.22 2.25-1.22 1.66 0 3 1.34 3 3v6.99z"/></svg>
+          <a href="https://www.linkedin.com/in/obodaya-ogheneyolema-37a673347" target="_blank">LinkedIn</a>
+        </div>
+        
+        <div class="contact" title="Portfolio">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.93 9H15.7a15.67 15.67 0 00-1.03-4.07A8.03 8.03 0 0118.93 11zM12 4.06c.87 1.18 1.87 3.23 2.3 6.94H9.7c.43-3.71 1.42-5.76 2.3-6.94zM5.07 13H8.3c.20 1.94.72 3.6 1.37 4.9A8.03 8.03 0 015.07 13zm3.23-2H5.07A8.03 8.03 0 019.67 6.93 15.67 15.67 0 008.3 11zm1.73 2h3.94c-.39 2.93-1.36 5.05-1.97 5.94-.61-.89-1.58-3.01-1.97-5.94zM14.33 13h3.26a8.03 8.03 0 01-4.6 4.9c.65-1.3 1.17-2.96 1.37-4.9z"/></svg>
+          <a href="https://yolithrones.github.io/obodaya-yolema-portfolio/" target="_blank">Portfolio</a>
+        </div>
+
+        <div class="contact" title="Location">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>Lagos, Nigeria</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section>
+      <h3 class="section-title">Professional Summary</h3>
+      <p class="summary">
+        Frontend Software Engineer with 4+ years building scalable healthcare marketplace applications using TypeScript, React, Node.js, and NestJS. Delivered 30% performance improvements and reduced development cycles by 20% while serving 25,000+ daily users across healthcare staffing and marketplace platforms. Expert in full software development lifecycle, trunk-based development, automated testing, AWS deployment, and on-call production support. Proven success in remote-first environments with healthcare staffing solutions and marketplace optimization. Ready to help Clipboard Health scale their healthcare staffing marketplace and enhance user experiences for healthcare professionals nationwide.
+      </p>
+    </section>
+
+    <!-- Skills -->
+    <section>
+      <h3 class="section-title">Skills</h3>
+      <div class="skills-container">
+        <div class="skill-row">
+          <div class="skill-title">Frontend:</div>
+          <div class="skill-items">React.js, TypeScript, JavaScript, Redux, React Query, Next.js, HTML5, CSS3, Tailwind CSS, Bootstrap, PWA</div>
+        </div>
+        
+        <div class="skill-row">
+          <div class="skill-title">Backend:</div>
+          <div class="skill-items">Node.js, Express.js, NestJS, RESTful APIs, Microservices Architecture, MongoDB, SQL, JWT, Marketplace APIs</div>
+        </div>
+        
+        <div class="skill-row">
+          <div class="skill-title">Tools:</div>
+          <div class="skill-items">Git, VS Code, Visual Studio, AWS (ECS, Terraform), Azure DevOps, Postman, Stripe Integration</div>
+        </div>
+        
+        <div class="skill-row">
+          <div class="skill-title">Practices:</div>
+          <div class="skill-items">Trunk-based Development, CI/CD Pipelines, Agile Development, Marketplace Optimization, WCAG 2.2 Compliance</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section>
+      <h3 class="section-title">Experience</h3>
+
+      <div class="role-block">
+        <div class="role-header">
+          <div class="role-title">Associate Software Engineer</div>
+          <div class="role-dates">Jan 2023 — Present</div>
+        </div>
+        <div class="company-info">
+          <span>Tech Innovate Solutions</span>
+          <span>Lagos, Nigeria</span>
+        </div>
+        <ul class="bullets">
+          <li>Developed scalable healthcare staffing marketplace applications using TypeScript, React, and Node.js, achieving 30% performance improvement serving 8,000+ daily users including healthcare professionals and facilities.</li>
+          <li>Built and maintained marketplace features connecting healthcare workers with medical facilities, processing 5,000+ shift bookings monthly with 99.9% uptime.</li>
+          <li>Participated in on-call rotation (1 week per month) managing production incidents and ensuring reliable healthcare staffing platform operations serving critical patient care needs.</li>
+          <li>Delivered 15+ production-ready marketplace features using full software development lifecycle methodologies, supporting healthcare worker scheduling and facility staffing optimization.</li>
+          <li>Reduced code review cycle time by 40% through automated testing frameworks and trunk-based development with short-lived feature branches.</li>
+          <li>Led cross-functional team of 5 developers delivering 8 major marketplace releases enabling healthcare professionals to book on-demand shifts.</li>
+          <li>Increased healthcare facility satisfaction scores by 25% through customer-centric marketplace design and seamless REST API integrations.</li>
+          <li>Maintained HIPAA-compliant code quality through rigorous testing and healthcare industry standards adherence</li>
+        </ul>
+      </div>
+
+      <div class="role-block">
+        <div class="role-header">
+          <div class="role-title">Junior Software Engineer</div>
+          <div class="role-dates">Jun 2022 — Dec 2022</div>
+        </div>
+        <div class="company-info">
+          <span>Nextwear Technologies</span>
+          <span>Abuja, Nigeria</span>
+        </div>
+        <ul class="bullets">
+          <li>Built healthcare marketplace tools with React and TypeScript in remote-first environment, improving healthcare worker onboarding efficiency by 35%.</li>
+          <li>Developed marketplace analytics dashboards reducing healthcare staffing analysis time by 50% using full software development lifecycle methodologies.</li>
+          <li>Delivered 6 critical marketplace features supporting healthcare staffing operations with trunk-based development practices.</li>
+          <li>Created Login API for Single Sign-On (SSO) enabling secure healthcare worker authentication for marketplace platform serving 5,000+ users.</li>
+          <li>Streamlined healthcare professional user experience by 40% through performant marketplace tools and AWS infrastructure optimization.</li>
+        </ul>
+      </div>
+
+      <div class="role-block">
+        <div class="role-header">
+          <div class="role-title">Intern</div>
+          <div class="role-dates">Jan 2022 — Apr 2022</div>
+        </div>
+        <div class="company-info">
+          <span>Nextwear Technologies</span>
+          <span>Abuja, Nigeria</span>
+        </div>
+        <ul class="bullets">
+          <li>Earned 'Outstanding Performance' recognition for healthcare marketplace prototype development and cross-functional collaboration.</li>
+          <li>Built marketplace ordering application demonstrating healthcare worker scheduling concepts and facility booking workflows.</li>
+          <li>Improved user retention by 55% developing scalable marketplace features using TypeScript, JavaScript, and Node.js for healthcare staffing solutions.</li>
+          <li>Reduced facility staffing gaps by 40% through optimized marketplace matching and notification systems</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section>
+      <h3 class="section-title">Key Achievements & Projects</h3>
+      
+      <div class="project">
+        <div class="project-title">Healthcare Performance Optimization Initiative</div>
+        <div class="project-tech">Node.js, NestJS, REST APIs, MongoDB, AWS</div>
+        <ul class="bullets">
+          <li>Pioneered serverless marketplace architecture for high-traffic healthcare staffing platform serving 25,000+ daily active users.</li>
+          <li>Implemented automated regression testing and trunk-based development ensuring reliable marketplace deployments.</li>
+          <li>Achieved 30% performance improvement through marketplace optimization and healthcare-specific caching strategies.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-title">React Healthcare Component Library</div>
+        <div class="project-tech">React.js, TypeScript, NestJS, Storybook</div>
+        <ul class="bullets">
+          <li>Built healthcare-focused React.js component library standardizing marketplace UI's for healthcare professional interfaces.</li>
+          <li>Accelerated healthcare marketplace development by 20% across 12 staffing platform projects.</li>
+          <li>Implemented healthcare industry design patterns optimizing user experience for shift booking and facility management.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Healthcare Food Ordering Marketplace</div>
+        <div class="project-tech">React.js, Node.js, NestJS, MongoDB, Stripe, Marketplace Logic</div>
+        <ul class="bullets">
+          <li>Developed marketplace application with secure payment processing serving healthcare facility meal ordering needs.</li>
+          <li>Implemented marketplace features like vendor management, order tracking, and healthcare facility delivery coordination.</li>
+          <li>Achieved 95% customer satisfaction through customer-centric healthcare marketplace designs.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h3 class="section-title">Education</h3>
+      
+      <div class="education-block">
+        <div class="education-info">
+          <div class="school-name">Aptech Education</div>
+          <div class="degree">Advanced Diploma in Software Engineering</div>
+        </div>
+        <div class="education-meta">
+          <div class="education-date">Jan 2022 — Jan 2024</div>
+          <div class="education-location">Victoria Island, Lagos, Nigeria</div>
+        </div>
+      </div>
+
+      <div class="education-block">
+        <div class="education-info">
+          <div class="school-name">Bizzmarrow Technologies</div>
+          <div class="degree">Certificate Of Full-Stack Web Development</div>
+        </div>
+        <div class="education-meta">
+          <div class="education-date">Sep 2020 — Oct 2021</div>
+          <div class="education-location">Gwarimpa, Abuja, Nigeria</div>
+        </div>
+      </div>
+
+      <div class="education-block">
+        <div class="education-info">
+          <div class="school-name">Sonnicity Universal School</div>
+          <div class="degree">High School Diploma (WAEC)</div>
+        </div>
+        <div class="education-meta">
+          <div class="education-date">Aug 2015 — Feb 2020</div>
+          <div class="education-location">Ughelli, Delta State, Nigeria</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

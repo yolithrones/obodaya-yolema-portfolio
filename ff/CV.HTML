@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vikas Gupta – Resume</title>
+
+<!-- Optional: try to load Inter; falls back gracefully -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --muted:#666;
+    --line:#e6e6e6;
+    --accent:#2f67ff;          /* blue for top quote */
+    --stamp:#1db954;            /* green for SELECTED */
+    --bg:#ffffff;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    background: #f4f5f7;
+    color:var(--ink);
+    font: 400 11.5pt/1.45 "Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,"Helvetica Neue",Helvetica,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding:24px;
+  }
+
+  /* Page card */
+  .page{
+    max-width: 840px;          /* close to A4 width at 96dpi */
+    margin:0 auto;
+    background:var(--bg);
+    border-radius:16px;
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+    padding:40px 44px 48px;
+    position:relative;
+  }
+
+  /* Top quote */
+  .top-quote{
+    text-align:center;
+    color:var(--accent);
+    font-weight:800;
+    letter-spacing:.6px;
+    line-height:1.2;
+    text-transform:uppercase;
+  }
+  .top-quote .l1{font-size:16px; margin-bottom:8px}
+  .top-quote .l2{font-size:20px; margin-bottom:18px}
+
+  /* Name + role */
+  .identity{
+    text-align:center;
+    margin-bottom:14px;
+  }
+  .name{
+    font-size:34px;
+    font-weight:800;
+    letter-spacing:.2px;
+    margin:2px 0 6px;
+  }
+  .role{
+    font-size:13.5px;
+    color:var(--muted);
+    font-weight:600;
+  }
+
+  /* Contacts row */
+  .contacts{
+    margin-top:14px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px 20px;
+    justify-content:center;
+    color:var(--ink);
+    font-size:12.5px;
+  }
+  .contact{
+    display:flex; align-items:center; gap:8px;
+    white-space:nowrap;
+  }
+  .contact svg{width:14px;height:14px;opacity:.9}
+  .divider{height:1px;background:var(--line);margin:18px 0 18px}
+  .hr {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Section headers */
+  .section{margin-top:14px;}
+  .section h3{
+    display: block;
+    position: relative;
+    z-index: 2;
+    background: var(--bg);
+    padding-right: 8px;
+    font-size:14px; letter-spacing:.4px; text-transform:uppercase;
+    margin:0 0 10px; font-weight:800;
+  }
+
+  /* Paragraphs */
+  .summary{
+    font-size:12.6px; color:#222; margin:0 0 12px;
+  }
+
+  /* Skills list */
+  .skills dt{
+  color:var(--ink); font-weight:700; font-size:12.4px;
+  }
+  .skills dd{
+  margin:0; flex:1 1 auto; font-size:12.4px; color:#222;
+  margin-left: 0;
+  }
+  .skills .row{
+  display:flex; gap:8px; align-items:flex-start;
+            padding: 3px 0;
+  }
+  .skills .row:first-child {
+    margin-top: -10px;
+  }
+
+  /* Experience */
+  .roleblock{margin-bottom:12px}
+  .rolehead{
+    display:flex; justify-content:space-between; gap:12px; align-items:flex-start;
+    margin:0 0 2px;
+  }
+  .rolehead .title{
+    font-weight:800; font-size:13.6px;
+  }
+  .rolehead .dates{
+    color:var(--ink); font-weight:700; font-size:12.2px; white-space:nowrap;
+  }
+  .company{
+    color:var(--muted); font-weight:600; font-size:12.2px;
+    display:flex; justify-content:space-between; gap:12px;
+    margin:0 0 6px;
+  }
+  .bullets{margin:0; padding-left:18px}
+  .bullets li{
+    margin:5px 0; font-size:12.3px;
+  }
+
+  /* Projects & Education bullets similar */
+  .project li{margin:4px 0; font-size:12.3px}
+  .edu .school{font-weight:800}
+  .edu .meta{color:var(--muted); font-weight:600}
+  .education-degree, .education-location {
+    font-weight: 600;
+    font-size: 12.2px;
+  }
+
+  /* Big green SELECTED stamp */
+  .stamp{
+    position:absolute;
+    inset:auto 90px 280px auto;   /* approximate placement over Experience */
+    transform:rotate(-16deg);
+    border:4px solid var(--stamp);
+    color:var(--stamp);
+    font-weight:900;
+    font-size:44px;
+    letter-spacing:2px;
+    padding:10px 22px;
+    border-radius:8px;
+    opacity:.18;                  /* translucent like in the image */
+    pointer-events:none;
+    text-transform:uppercase;
+  }
+
+  a{
+    color: #3555be;
+  }
+
+  /* Print */
+  @media print{
+    body{background:transparent;padding:0}
+    .page{
+      box-shadow:none; border:0; border-radius:0; padding:28mm 18mm 26mm; /* A4 margins */
+      width:210mm; max-width:none;
+    }
+    .stamp{opacity:.22}
+  }
+
+  /* Small screens */
+  @media (max-width:720px){
+    .page{padding:28px 20px}
+    .stamp{right:40px; bottom:240px; font-size:36px}
+    .skills dt{flex-basis:100px}
+  }
+
+  .education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.education-date {
+    font-size: 14px; /* Slightly smaller for date */
+    color: #666;
+    font-weight: bold;
+    margin-left: 10px;
+
+    display: inline-block;
+}
+.education-location {
+    font-size: 14px;
+    color: #888;
+    margin-top: 2px;
+    display: block;
+    text-align: right;
+}
+/* .project-title, .education-degree { font-weight: 800; font-size: 13.6px; } -- removed for education-degree */
+</style>
+</head>
+<body>
+  <main class="page">
+
+    <!-- Identity -->
+    <header class="identity">
+      <div class="name">Vikas Gupta</div>
+      <div class="role">Associate Software Engineer at AppliTron Solutions</div>
+
+      <div class="contacts">
+        <div class="contact" title="Phone">
+          <!-- phone -->
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-.91 1A17 17 0 013 5.91a1 1 0 011- .91H7.6a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.3 2.22z"/></svg>
+          <a href="tel:777777777">07032972237</a>
+        </div>
+        <div class="contact" title="Email">
+          <!-- mail -->
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 00-2 2v.4l10 6.25L22 6.4V6a2 2 0 00-2-2zm2 6.04l-9.35 5.84a1.99 1.99 0 01-2.3 0L1 10.04V18a2 2 0 002 2h16a2 2 0 002-2v-7.96z"/></svg>
+          <a href="mailto:vikasgupta@appitronsolutions.com">yolithrone@gmail.com</a>
+        </div>
+        <div class="contact" title="LinkedIn">
+          <!-- LinkedIn -->
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75c.97 0 1.75.79 1.75 1.75s-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.07-.93-2-2-2s-2 .93-2 2v4.5h-3v-9h3v1.22c.41-.77 1.39-1.22 2.25-1.22 1.66 0 3 1.34 3 3v6.99z"/></svg>
+          <a href="https://linkedin.com/in/vikasguptag" target="_blank">linkedin.com</a>
+        </div>
+        
+        <div class="contact" title="Portfolio">
+          <!-- globe -->
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.93 9H15.7a15.67 15.67 0 00-1.03-4.07A8.03 8.03 0 0118.93 11zM12 4.06c.87 1.18 1.87 3.23 2.3 6.94H9.7c.43-3.71 1.42-5.76 2.3-6.94zM5.07 13H8.3c.2 1.94.72 3.6 1.37 4.9A8.03 8.03 0 015.07 13zm3.23-2H5.07A8.03 8.03 0 019.67 6.93 15.67 15.67 0 008.3 11zm1.73 2h3.94c-.39 2.93-1.36 5.05-1.97 5.94-.61-.89-1.58-3.01-1.97-5.94zM14.33 13h3.26a8.03 8.03 0 01-4.6 4.9c.65-1.3 1.17-2.96 1.37-4.9z"/></svg>
+          <a href="https://flutterpath.com" target="_blank">portfolio.com</a>
+        </div>
+
+        <div class="contact" title="Location">
+          <!-- location icon -->
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>Lagos, Nigeria</span>
+        </div>
+      </div>
+    </header>
+
+    <hr>
+
+    <!-- Professional Summary -->
+    <section class="section">
+      <h3>Professional Summary <hr></h3>
+      <p class="summary">
+        Full-stack developer with 3 years of experience in JavaScript, React.js, Node.js, and CSS. Skilled in building scalable apps, RESTful APIs, TDD, and accessibility standards. Familiar with Azure DevOps, quick to learn, and a proactive team player focused on delivering high-quality software and achieving project success.
+      </p>
+    </section>
+
+
+
+    <!-- Skills -->
+    <section class="section">
+      <h3>Skills <hr></h3>
+      <dl class="skills">
+        <div class="row">
+          <dt>Frontend:</dt>
+          <dd>React.js, TypeScript, Redux, React Query, Next.js, HTML/CSS, Tailwind CSS, Bootstrap, JavaScript, Webpack, PWA</dd>
+        </div>
+        <div class="row">
+          <dt>Backend:</dt>
+          <dd>Node.js, Express.js, MongoDB, Mongoose, SQL, Sequelize, JWT, Microservices</dd>
+        </div>
+        <div class="row">
+          <dt>Tools:</dt>
+          <dd>Git, VS Code, Visual Studio, Azure DevOps, Postman, Stripe</dd>
+        </div>
+        <div class="row">
+          <dt>Other Skills:</dt>
+          <dd>RESTful APIs, CI/CD Pipelines, TDD, Accessibility (WCAG 2.2), Cross-Browser Compatibility, Agile Development</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- Experience -->
+    <section class="section">
+      <h3>Experience <hr></h3>
+
+      <div class="roleblock">
+        <div class="rolehead">
+          <div class="title">Associate Software Engineer</div>
+          <div class="dates">Jan 2023 — Present</div>
+        </div>
+        <div class="company">
+          <span>Innova Solutions</span>
+          <span>Noida, India</span>
+        </div>
+        <ul class="bullets">
+          <li>Designed and implemented dynamic user interfaces for a UK-based healthcare client project using React JS, focusing on delivering intuitive and responsive front-end solutions.</li>
+          <li>Ensured compliance with Web Content Accessibility Guidelines (WCAG) 2.2, improving usability for all users.</li>
+          <li>Applied Test-Driven Development (TDD) practices to deliver high-quality, maintainable, and reliable code.</li>
+          <li>Utilized Azure DevOps (ADO) and Agile methodologies to enhance team collaboration, streamline development, and maintain a focus on client needs.</li>
+          <li>Streamlined integration, testing, and deployment with CI/CD pipelines using Azure DevOps.</li>
+          <li>Implemented performance improvements by optimizing React components, lazy loading, and Webpack.</li>
+          <li>Enhanced features to improve user experience, accessibility, and development workflows.</li>
+          <li>Integrated Azure Active Directory for secure authentication and authorization.</li>
+          <li>Ensured code quality and consistency by following best practices, linting, and adherence to coding standards.</li>
+        </ul>
+      </div>
+
+      <div class="roleblock">
+        <div class="rolehead">
+          <div class="title">Junior Software Engineer</div>
+          <div class="dates">Jun 2022 — Dec 2022</div>
+        </div>
+        <div class="company">
+          <span>Innova Solutions</span>
+          <span>Noida, India</span>
+        </div>
+        <ul class="bullets">
+          <li>Completed intensive training in SQL, HTML, CSS, React JS, and Node.js, gaining proficiency in web development and database management.</li>
+          <li>Created and maintained APIs for the Organization Calendar capstone project using Node.js and Express.</li>
+          <li>Optimized Progressive Web Applications (PWAs) to enhance performance, offline accessibility, and seamless user experience.</li>
+          <li>Implemented Sequelize ORM to improve data interaction and management.</li>
+          <li>Developed APIs such as the Login API for Single Sign-On (SSO), ensuring secure and efficient authentication.</li>
+        </ul>
+      </div>
+
+      <div class="roleblock">
+        <div class="rolehead">
+          <div class="title">Intern</div>
+          <div class="dates">Jan 2022 — Apr 2022</div>
+        </div>
+        <div class="company">
+          <span>Innova Solutions</span>
+          <span>Noida, India</span>
+        </div>
+        <ul class="bullets">
+          <li>Acquired practical skills in SQL, HTML, CSS, and JavaScript through comprehensive training.</li>
+          <li>Built a Beverage Order App to showcase the practical application of web development techniques.</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- Projects -->
+    <section class="section">
+      <h3>Projects <hr></h3>
+      <div class="roleblock project">
+        <div class="title" style="font-weight:800; font-size:13.6px">Vehicle Tracking <span style="font-weight:700;color:var(--muted)">| Node, Express JS, REST API, MongoDB</span></div>
+        <ul class="bullets">
+          <li>Developed a REST API for tracking vehicle ownership details and visit purposes.</li>
+          <li>Leveraged MongoDB for seamless database integration.</li>
+        </ul>
+      </div>
+
+      <div class="roleblock project">
+        <div class="title" style="font-weight:800; font-size:13.6px">Food Ordering Application <span style="font-weight:700;color:var(--muted)">| React JS, Node, Express JS, REST API, MongoDB</span></div>
+        <ul class="bullets">
+          <li>Used the MERN stack to develop a feature-rich Food Ordering Application.</li>
+          <li>Implemented secure payment functionality using Stripe.</li>
+        </ul>
+      </div>
+    </section>
+
+
+
+    <!-- Education -->
+    <section class="section edu">
+      <h3>Education <hr></h3>
+      <div class="roleblock education-header">
+        <div>
+          <div class="school" style="font-weight:800; font-size:13.6px">APTECH, Nigeria</div>
+          <div class="meta" style=" font-size:12.3px; color:#383838;">Bachelor of Technology in Computer Science</div>
+        </div>
+        <div>
+          <div class="education-date" style="font-weight:700; font-size:12.12px; color:#1a1a1a;">Aug, 2018 — May, 2022</div>
+          <div class="education-location"  style="font-weight:600; font-size:12.2px; ">Mathura, UP, India</div>
+        </div>
+      </div>
+    </section>
+
+    
+
+  </main>
+</body>
+</html>
