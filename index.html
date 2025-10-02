@@ -10,73 +10,83 @@
 
 		<style>
 			.posts article {
-    display: flex !important;
-    flex-direction: column !important;
-    height: 100% !important;
-    min-height: 550px !important;
-}
+			display: flex !important;
+			flex-direction: column !important;
+			height: 100% !important;
+			min-height: 550px !important;
+		}
 
-.posts article header {
-    min-height: 80px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
+		.posts article header {
+			min-height: 80px !important;
+			display: flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+		}
 
-.posts article header h2 {
-    margin: 0 !important;
-}
+		.posts article header h2 {
+			margin: 0 !important;
+		}
 
-/* Uniform image containers */
-.posts article .image.fit {
-    width: 100% !important;
-    height: 250px !important;
-    overflow: hidden !important;
-    margin: 0 0 1.5rem 0 !important;
-    flex-shrink: 0 !important;
-}
+		/* Uniform image containers */
+		.posts article .image.fit {
+			width: 100% !important;
+			height: 250px !important;
+			overflow: hidden !important;
+			margin: 0 0 1.5rem 0 !important;
+			flex-shrink: 0 !important;
+		}
 
-.posts article .image.fit img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-    border-radius: 0 !important;
-}
+		.posts article .image.fit img {
+			width: 100% !important;
+			height: 100% !important;
+			object-fit: cover !important;
+			object-position: center !important;
+			border-radius: 0 !important;
+		}
 
-/* Uniform text content area */
-.posts article p {
-    flex-grow: 1 !important;
-    min-height: 120px !important;
-    margin-bottom: 1.5rem !important;
-    overflow: hidden !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 5 !important;
-    -webkit-box-orient: vertical !important;
-    text-overflow: ellipsis !important;
-}
+		/* Uniform text content area */
+		.posts article p {
+			flex-grow: 1 !important;
+			min-height: 120px !important;
+			margin-bottom: 1.5rem !important;
+			overflow: hidden !important;
+			display: -webkit-box !important;
+			-webkit-line-clamp: 5 !important;
+			-webkit-box-orient: vertical !important;
+			text-overflow: ellipsis !important;
+		}
 
-/* Uniform button area */
-.posts article .actions {
-    margin-top: auto !important;
-    padding-top: 0 !important;
-}
+		.posts article p.expanded {
+		-webkit-line-clamp: unset !important;
+		overflow: visible !important;
+		}
 
-.posts article .actions .button {
-    width: 100% !important;
-    max-width: 200px !important;
-}
+	    .read-more-button.expanded::after {
+		content: "";
+		}
 
-/* Mobile responsive */
-@media (max-width: 736px) {
-    .posts article {
-        min-height: 500px !important;
-    }
-    
-    .posts article .image.fit {
-        height: 200px !important;
-    }
-}
+
+		/* Uniform button area */
+		.posts article .actions {
+			margin-top: auto !important;
+			padding-top: 0 !important;
+		}
+
+		.posts article .actions .button {
+			width: 100% !important;
+			max-width: 200px !important;
+		}
+
+		/* Mobile responsive */
+		@media (max-width: 736px) {
+			.posts article {
+				min-height: 500px !important;
+			}
+			
+			.posts article .image.fit {
+				height: 200px !important;
+			}
+		}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -150,8 +160,10 @@
 									<h2><a href="https://elearn.education.gov.ng/">eLearn - Federal Ministry <br> of Education<br /></a></h2>
 								</header>
 								<a href="https://elearn.education.gov.ng/" class="image fit"><img src="images/elearn.png" alt="" /></a>
-								<p>A creator-focused learning management system for the Federal Ministry of Education where instructors upload video courses and students track their progress. Features include optimized course catalogs with lazy loading, Stripe payment integration for subscriptions, and a real-time analytics dashboard processing thousands of records. Built with Next.js and Supabase. <strong>Currently Live!</strong></p>
+								<p>A creator-focused learning management system for the Federal Ministry of Education where instructors upload video courses and students track their progress. Features include optimized course catalogs with lazy loading, Stripe payment integration for subscriptions, and a real-time analytics dashboard processing thousands of records. Built with Next.js and Supabase. <strong>Currently Live!</strong> </p>
 								<br>
+								<span class="read-more-button" style="color: brown; text-decoration:underline; margin-top:-60px">Read More</span>
+								
 								<ul class="actions special">
 									<li><a class="button">Preview</a></li>
 								</ul>
@@ -164,7 +176,7 @@
 								<a href="https://saintthethird-9d602583bc98.herokuapp.com/" class="image fit"><img src="images/pic11.png" alt="" /></a>
 								<p>A fully functional e-commerce website that allows users to browse, select, and purchase products online. The website includes features such as user accounts, shopping carts, and payment processing.</p>
 								<br>
-								<br>
+
 								<ul class="actions special">
 									<li><a class="button">Featured</a></li>
 								</ul>
@@ -175,7 +187,9 @@
 									<h2><a href="https://saintthethird-9d602583bc98.herokuapp.com/login">E-commerce content management system</a></h2>
 								</header>
 								<a href="https://saintthethird-9d602583bc98.herokuapp.com/login" class="image fit"><img src="images/pic16.png" alt="" /></a>
-								<p>An intuitive admin panel that equips you with the tools to effortlessly manage every aspect of your e-commerce empire. From products and orders to customers and content. <br>Demo Login: testadmin@gmail.com <br>Password: testadmin5656</p>
+								<p>An intuitive admin panel that equips you with the tools to effortlessly manage every aspect of your e-commerce empire. From products and orders to customers and content. Demo Login: testadmin@gmail.com <br>Password: testadmin5656</p>
+
+								
 								<ul class="actions special">
 									<li><a class="button">Featured</a></li>
 								</ul>
@@ -280,7 +294,19 @@
 						<ul><li>&copy; Yolithrones</li><li>Portfolio</li></ul>
 					</div>
 			</div>
+			<script>
+				document.querySelectorAll('.read-more-button').forEach(button => {
+				button.addEventListener('click', () => {
+					const article = button.closest('article');
+					const paragraph = article.querySelector('p');
 
+					paragraph.classList.toggle('expanded');
+					button.classList.toggle('expanded');
+
+					button.textContent = button.classList.contains('expanded') ? 'Read Less' : 'Read More';
+				});
+				});
+			</script>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
