@@ -113,48 +113,47 @@ input, select, textarea {
 			transition: none !important;
 		}
 
+
 /* Type */
-
-<<<<<<< HEAD
-=======
-
 
 /* Target all images within the .posts section's articles */
 .posts article .image.fit img {
-	width: 600px;          /* Fixed width for uniformity */
-	height: 300px;         /* Fixed height for uniformity */
-	object-fit: cover;     /* Crops excess while maintaining aspect ratio */
-	display: block;        /* Ensures no extra spacing below */
-	margin: 0 auto;        /* Centers the image horizontally */
-	border-radius: 8px;    /* Optional: adds a modern rounded corner */
+	width: 600px;
+	height: 300px;
+	object-fit: cover;
+	display: block;
+	margin: 0 auto;
+	border-radius: 8px;
 }
 
 /* Ensure the container respects the image size */
 .posts article .image.fit {
-	width: 600px;          /* Matches image width */
-	height: 300px;         /* Matches image height */
-	overflow: hidden;      /* Hides any overflow from object-fit: cover */
-	margin-bottom: 15px;   /* Adds spacing between image and text, adjust as needed */
+	width: 600px;
+	height: 300px;
+	overflow: hidden;
+	margin-bottom: 15px;
 }
 
 /* Responsive adjustment for smaller screens */
 @media (max-width: 768px) {
 	.posts article .image.fit img,
 	.posts article .image.fit {
-			width: 200px;      /* Smaller width for tablets/mobile */
-			height: 133px;     /* Maintains approximate 3:2 ratio */
+		width: 200px;
+		height: 133px;
 	}
 }
 
 @media (max-width: 480px) {
 	.posts article .image.fit img,
 	.posts article .image.fit {
-			width: 150px;      /* Even smaller for very small screens */
-			height: 100px;     /* Maintains approximate 3:2 ratio */
+		width: 150px;
+		height: 100px;
 	}
 }
 
->>>>>>> 09a0a74508f53b6b1cb0ee9a400e6a7bc248fd37
+	html {
+		font-size: 16pt;
+	}
 	html {
 		font-size: 16pt;
 	}
